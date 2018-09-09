@@ -92,7 +92,7 @@ class Match:
                     break
             return my, enemy
         else:
-            return {p.id: p.car.fast_dump()for p in self.players}
+            return {p.id: p.car.fast_dump() for p in self.players}
 
     def send_new_match_message(self):
         proto_map = self.map.get_proto()
