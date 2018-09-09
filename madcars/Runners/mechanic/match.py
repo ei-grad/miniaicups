@@ -147,6 +147,10 @@ class Match:
         return self.rest_counter == 0 and bool(self.dead_players) and self.is_rest
 
     def end_match(self):
+        for p in self.players:
+            p.send_message('reward', {
+                'reward': 0 if p in self.dead_players else 1,
+            })
         for p in self.dead_players:
             p.die()
         return self.match_log
